@@ -3,12 +3,12 @@
     <transition enter-active-class="slideInRight" leave-active-class="slideOutRight">
     <div v-if="show" class="musiclist-nav animated" >
         <div class="nav-head">
-            <div class="nav-close-btn" v-on:click="$emit('update:show', false)">取消</div>
+            <div class="nav-close-btn"  v-on:click="$emit('update:show', false)">取消</div>
            类型选择
         </div>
         <div class="nav-content">
             <div class="nav-row">
-                <span class="nav-item all active">全部音单</span>
+                <router-link tag="span" v-on:click.native="$emit('update:show', false)" class="nav-item all " v-bind:class="{active : tid === 0  }" to="/musiclist">全部音单</router-link>
             </div>
             
              <div v-for="(items,key) in navData" v-bind:key="key" class="nav-row type">
@@ -16,7 +16,7 @@
                      <div class="nav-type">
                          {{key}}
                     </div>
-                    <span class="nav-item" v-for="item in items" v-bind:key="item[0]" v-on:click="navChange(item)" >{{ item[1] }}</span>
+                     <router-link tag="span" class="nav-item" v-for="item in items" v-bind:class="{active : tid === item[0]  }" v-bind:to="'/musiclist/'+item[0]" v-bind:key="item[0]" v-on:click.native="$emit('update:show', false)" >{{ item[1] }}</router-link>
                     
                 
              </div>
@@ -37,15 +37,17 @@ export default {
     title: String
   },
   created () {
-      console.log('tid',this.tid);
-      console.log('navData',this.navData)
+    //   console.log('tid',this.tid);
+    //   console.log('navData',this.navData)
+    console.log(this.tid)
+    console.log(this.show)
   },
   methods : {
      navChange (item) {
-        console.log(item)
-        this.$emit('update:tid', item[0]);
-        this.$emit('update:show', false)
-        this.$emit('update:title', item[1])
+        // console.log(item)
+       
+       
+      
 
      } 
   }
@@ -55,14 +57,14 @@ export default {
 <style lang="scss">
 .musiclist-nav {
   &.animate {
-    animation-duration: 0.5ss;
+    animation-duration: 0.5s;
   }
   position: absolute;
   width: 100%;
   background-color:#f5f5f5;
-  height: calc(100% + 1.333333rem);
+  height: calc(100% + 1.066667rem);
   left: 0;
-  top: -1.333333rem;
+  top: -1.066667rem;
 
   z-index: 2;
 

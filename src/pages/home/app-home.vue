@@ -33,21 +33,21 @@ export default {
           text: "音单",
           mainComponent: "app-home-musiclist",
           active: false,
-          path: "musiclist"
+          path: "/musiclist"
         },
         {
           id: "2",
           text: "推荐",
           mainComponent: "app-home-suggest",
           active: true,
-          path: "suggest"
+          path: "/suggest"
         },
         {
           id: "3",
           text: "分类",
           // mainComponent : 'app-home-category',
           // active: false,
-          path: "category"
+          path: "/category"
         }
       ],
       mainComponent: "app-home-suggest"

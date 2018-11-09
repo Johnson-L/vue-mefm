@@ -8,7 +8,7 @@
         <transition enter-active-class="slideInRight" leave-active-class="slideOutRight">
         <div class="nav-content animated" v-if="show">
             <div class="item user">
-                <div class="user-headimg" style="background-image: url(http://static.missevan.com/assets/images/home/default-icon.jpg);">
+                <div class="user-headimg" style="background-image: url(https://static.missevan.com/assets/images/home/default-icon.jpg);">
                     
                 </div>
                 <div class="user-details">

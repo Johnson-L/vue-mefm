@@ -1,11 +1,14 @@
 <template>
     <div class="app-home-category">
-        
-            <div class="category-list">
+            <app-loading v-if="!firstLoading"></app-loading>
+            <div v-else>
+              <div class="category-list">
                 <app-home-category-item v-if="cateList" v-for="item in cateList" v-bind:key="item.id" v-bind:info="item">
 
                 </app-home-category-item>
             </div>
+            </div>
+            
         
     </div>
 
@@ -21,11 +24,13 @@ export default {
     }).then(result => {
       //   console.log(result);
       this.cateList = result.data.info;
+      this.firstLoading = true;
     });
   },
   data() {
     return {
-      cateList: null
+      cateList: null,
+      firstLoading: false
     };
   },
   components: {
@@ -36,14 +41,14 @@ export default {
 
 <style lang="scss">
 .app-home-category {
- .category-list{
-     display: flex;
-     justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        box-sizing: border-box;
-        padding: .4rem;
- }
+  .category-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0.4rem;
+  }
 }
 </style>
 

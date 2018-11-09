@@ -21,7 +21,7 @@ export default {};
     width: 8.213333rem;
     height: 5.333333rem;
     margin: 0 auto 0.533333rem;
-    background: url(//static.missevan.com/assets/m/images/build/not-found.105b5c3c.png)
+    background: url(https://static.missevan.com/assets/m/images/build/not-found.105b5c3c.png)
       no-repeat;
     -moz-background-size: 100%;
     -o-background-size: 100%;

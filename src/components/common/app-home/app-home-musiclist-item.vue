@@ -59,7 +59,7 @@
           left: 0;
           height: 0.293333rem;
           width: 0.346667rem;
-          background-image: url(//static.missevan.com/assets/m/images/build/sprite-icons-thumbnails@2x.f1c29abf.png);
+          background-image: url(https://static.missevan.com/assets/m/images/build/sprite-icons-thumbnails@2x.f1c29abf.png);
         }
       }
     }
@@ -96,7 +96,7 @@ export default {
   },
   computed: {
     imgurl() {
-      return `background-image: url(${this.info.front_cover})`;
+      return `background-image: url(${this.info.front_cover.replace('http','https')})`;
     }
   }
 };

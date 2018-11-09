@@ -1,7 +1,8 @@
 <template>
     <div class="app-home-musiclist">
-        
-          <app-home-musiclist-nav v-if="navData" v-bind:tid="parseInt(id)" v-bind:show.sync = "cateShow" v-bind:navData = "navData"></app-home-musiclist-nav>
+          <app-loading v-if="!firstLoading"></app-loading>
+          <div v-else>
+            <app-home-musiclist-nav v-if="navData" v-bind:tid="parseInt(id)" v-bind:show.sync = "cateShow" v-bind:navData = "navData"></app-home-musiclist-nav>
        
         <div class="musiclist-content">
           
@@ -21,6 +22,8 @@
           </div>
         </div>
         
+          </div>
+          
         
     </div>
 
@@ -49,8 +52,9 @@ export default {
         pagesize: 20
       },
       title: "全部音单",
-      loadingmore : false,
-      nomore : false
+      loadingmore: false,
+      nomore: false,
+      firstLoading: false
     };
   },
 
@@ -66,6 +70,7 @@ export default {
       url: "/fm/malbum/recommand"
     }).then(result => {
       this.navData = result.data.info;
+      this.firstLoading = true;
       for (var i in this.navData) {
         this.navData[i].forEach((item, index) => {
           if (item[0] == this.id) {

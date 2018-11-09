@@ -8,6 +8,9 @@
     text-decoration: none;
     outline: none;
 }
+a, button, input[type=search], input[type=submit] {
+    -webkit-appearance: none;
+}
 html,
 body,
 div,

@@ -10,18 +10,23 @@
        <router-view></router-view>
       
     </main>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
   </section>
 </template>
 
 
 <script>
 import AppHeader from "@c/layout/app-header";
-// import AppHome from "@pages/home/app-home";
+import AppFooter from '@c/layout/app-footer';
+
 export default {
   name: "app",
   components: {
-    AppHeader
-    // AppHome
+    AppHeader,
+    AppFooter
+
   }
 };
 </script>

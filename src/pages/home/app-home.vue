@@ -9,10 +9,13 @@
              <!-- </keep-alive> -->
         </ul>
         
-            <!-- 缓存， 切换路由不会destory -->
-            <keep-alive>
+        <div class="tab-content">
+          <keep-alive>
                 <router-view></router-view>
             </keep-alive>
+        </div>
+            <!-- 缓存， 切换路由不会destory -->
+            
            <!-- <component v-bind:is="mainComponent"></component> -->
 
        
@@ -94,6 +97,10 @@ export default {
         border-bottom: 2px solid #000;
       }
     }
+  }
+
+  .tab-content{
+    min-height: calc(100vh - 4.266667rem);
   }
 }
 </style>

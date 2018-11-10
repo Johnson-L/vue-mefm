@@ -6,20 +6,24 @@ const scroll = ({
     onscroll
 }) => {
     let scroll = new BetterScroll(el, {
-        proboType : 2,
-        pullUpload : {
-            threshold: 50
+        probeType : 2,
+        pullUpLoad: { //配置上拉加载
+            threshold: 50 // 距离底部多少距离
         },
         click: true
     })
+   
 
-    scroll.on('pullingUp', async () => {
+    scroll.on('pullingUp',  async () => {
+        console.log('满足上拉刷新条件')
         await handler();
-        scroll.finishPullUp();
-        WritableStreamDefaultController.refresh()
+        scroll.finishPullUp() // 解决拉动刷新
+        scroll.refresh() // 重新计算
     })
 
     scroll.on('scroll', () => {
+        
+        // console.log(scroll.y)
         onscroll(scroll.y);
     })
     return scroll;

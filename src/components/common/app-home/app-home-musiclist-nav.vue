@@ -36,12 +36,7 @@ export default {
     navData : Object,
     title: String
   },
-  created () {
-    //   console.log('tid',this.tid);
-    //   console.log('navData',this.navData)
-    console.log(this.tid)
-    console.log(this.show)
-  },
+ 
   methods : {
      navChange (item) {
         // console.log(item)

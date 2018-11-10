@@ -1,7 +1,10 @@
 <template>
 
     <section class="app-home-suggest">
-        <app-home-banner v-if="data" v-bind:banners="data.info.banner">
+
+        <app-loading v-if="!firstLoading"></app-loading>
+        <div v-else>
+          <app-home-banner v-if="data" v-bind:banners="data.info.banner">
 
         </app-home-banner>
         <app-home-section v-if="hotSound" v-bind:info="hotSound"></app-home-section>
@@ -14,6 +17,8 @@
         <app-home-section v-if="dataArray" v-for="item in dataArray" v-bind:key="item.id" v-bind:info="item">
 
         </app-home-section>
+        </div>
+        
     </section>
 </template>
 
@@ -29,7 +34,8 @@ export default {
       dataArray: null,
       hotSound: null,
       channelHeadInfo: null,
-      channelItems: null
+      channelItems: null,
+      firstLoading: false
     };
   },
   components: {
@@ -39,7 +45,10 @@ export default {
     AppHomeItemChannel
   },
   beforeCreate() {
-    this.axios({
+
+    
+
+    var promiseRank = this.axios({
       type: "get",
       url: "/fm/mobileWeb/newHomepage3"
     }).then(result => {
@@ -56,30 +65,38 @@ export default {
       };
 
       this.channelItems = this.data.info.channel;
+      return ;
       // console.log(this.channelItems)
     });
 
-    this.axios({
+    var promiseData = this.axios({
       type: "get",
       url: "/fm/sound/newhomepagedata"
     }).then(result => {
       this.dataArray = result.data.music;
+      return;
     });
+    Promise.all([promiseRank, promiseData]).then(function(){
+      console.log('请求完毕');
+     
+      this.firstLoading = true;
+    }.bind(this))
   }
 };
 </script>
 
 <style lang="scss">
 .app-home-suggest {
+  min-height: 100vh;
   .app-home-section-channel {
-    padding-bottom: .426667rem;
-    margin: .266667rem auto;
-    .app-home-body-channel{
+    padding-bottom: 0.426667rem;
+    margin: 0.266667rem auto;
+    .app-home-body-channel {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       box-sizing: border-box;
-      margin: 0 .373333rem;
+      margin: 0 0.373333rem;
     }
   }
 }

@@ -9,10 +9,13 @@
              <!-- </keep-alive> -->
         </ul>
         
-            <!-- 缓存， 切换路由不会destory -->
-            <keep-alive>
+        <div class="tab-content">
+          <keep-alive>
                 <router-view></router-view>
             </keep-alive>
+        </div>
+            <!-- 缓存， 切换路由不会destory -->
+            
            <!-- <component v-bind:is="mainComponent"></component> -->
 
        
@@ -33,21 +36,21 @@ export default {
           text: "音单",
           mainComponent: "app-home-musiclist",
           active: false,
-          path: "musiclist"
+          path: "/musiclist"
         },
         {
           id: "2",
           text: "推荐",
           mainComponent: "app-home-suggest",
           active: true,
-          path: "suggest"
+          path: "/suggest"
         },
         {
           id: "3",
           text: "分类",
           // mainComponent : 'app-home-category',
           // active: false,
-          path: "category"
+          path: "/category"
         }
       ],
       mainComponent: "app-home-suggest"
@@ -94,6 +97,10 @@ export default {
         border-bottom: 2px solid #000;
       }
     }
+  }
+
+  .tab-content{
+    min-height: calc(100vh - 4.266667rem);
   }
 }
 </style>

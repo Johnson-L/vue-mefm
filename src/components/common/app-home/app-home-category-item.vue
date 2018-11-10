@@ -48,7 +48,7 @@ export default {
       return `/list/${this.info.id}`;
     },
     imgUrl() {
-      return `url("//static.missevan.com/app/${this.info.id}.png")`;
+      return `url("https://static.missevan.com/app/${this.info.id}.png")`;
     }
   }
 };

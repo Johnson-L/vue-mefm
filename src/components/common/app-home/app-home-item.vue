@@ -21,7 +21,7 @@ export default {
 
   computed: {
     bgStr() {
-      return `background-image: url("//static.missevan.com/coversmini/${
+      return `background-image: url("https://static.missevan.com/coversmini/${
         this.itemInfo.cover_image
       }");`;
     },
@@ -59,7 +59,7 @@ export default {
       bottom: 0.213333rem;
       height: 0.64rem;
       width: 0.64rem;
-      background-image: url(//static.missevan.com/assets/m/images/build/sprite-icons-thumbnails@2x.f1c29abf.png);
+      background-image: url(https://static.missevan.com/assets/m/images/build/sprite-icons-thumbnails@2x.f1c29abf.png);
     }
   }
   .item-text {
@@ -99,7 +99,7 @@ export default {
         height: 0.266667rem;
         width: 0.32rem;
         background-size: 1.493333rem 1.466667rem;
-        background-image: url(//static.missevan.com/assets/m/images/build/sprite-icons-thumbnails@2x.f1c29abf.png);
+        background-image: url(https://static.missevan.com/assets/m/images/build/sprite-icons-thumbnails@2x.f1c29abf.png);
         
       }
 

@@ -2,9 +2,9 @@
     <header class="app-header">
         <div class="header-content">
             <div class="left">
-                <div class="logo-btn">
+                <router-link tag="div" to="/" class="logo-btn">
                     <i></i>
-                </div>
+                </router-link>
             </div>
             <div class="right">
                 <div class="search-btn">

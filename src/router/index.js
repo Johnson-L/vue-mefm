@@ -16,32 +16,38 @@ import AppHomeMusiclist from '@pages/home/app-home-musiclist';
 import AppHomeCategory from '@pages/home/app-home-category';
 import AppNotFound from '@pages/not-found'
 const routes = [
-    {
-        path: '/',
-        redirect: {
-            name: 'home'
-        }
-    },
+
     {
         path: '/home',
         name: 'home',
         component: AppHome,
-        redirect: { name: 'suggest' },
+        // redirect: { name: 'suggest' },
+        alias: '/',
         children: [
             {
                 path: 'suggest',
                 name: 'suggest',
-                component: AppHomeSuggest
+                component: AppHomeSuggest,
+                alias: '/'
             },
             {
                 path: 'musiclist',
                 name: 'musiclist',
-                component: AppHomeMusiclist
+                component: AppHomeMusiclist,
+                alias: '/musiclist',
+                props: true
+            },
+            {
+                path: 'musiclist/:id',
+                component: AppHomeMusiclist,
+                alias: '/musiclist/:id',
+                props: true
             },
             {
                 path: 'category',
                 name: 'category',
-                component: AppHomeCategory
+                component: AppHomeCategory,
+                alias: '/category'
             }
         ]
     },

@@ -17,7 +17,7 @@ export default {
 
   computed: {
     bgStr() {
-      return `background-image: url(${this.itemInfo.smallpic});`;
+      return `background-image: url(${this.itemInfo.smallpic.replace('http','https')});`;
     },
     path() {
       return `/channel/${this.itemInfo.id}`;
@@ -75,7 +75,7 @@ export default {
         left: 0;
         width: .4rem;
         height: .346667rem;
-        background-image: url(//static.missevan.com/assets/m/images/build/sprite-icons-thumbnails@2x.f1c29abf.png);
+        background-image: url(https://static.missevan.com/assets/m/images/build/sprite-icons-thumbnails@2x.f1c29abf.png);
       }
     }
   }
